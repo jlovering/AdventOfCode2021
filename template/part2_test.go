@@ -17,7 +17,7 @@ func TestPart2Samples(t *testing.T) {
 		{
 			name: "AoCExample",
 			args: args{
-				file: "test/sample_part2_test",
+				file: "test/sample_test",
 			},
 			want: "",
 		},
@@ -43,11 +43,12 @@ func TestRunPart2(t *testing.T) {
 		{
 			name: "AoCInput",
 			args: args{
-				file: "test/part2_input",
+				file: "test/input",
 			},
 			want: "",
 		},
 	}
+	debug_output = false
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got := Part2(tt.args.file)
