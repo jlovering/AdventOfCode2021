@@ -17,9 +17,9 @@ func TestPart2Samples(t *testing.T) {
 		{
 			name: "AoCExample",
 			args: args{
-				file: "test/sample_part2_test",
+				file: "test/sample_part1_test",
 			},
-			want: "",
+			want: "900",
 		},
 	}
 	for _, tt := range tests {
@@ -43,7 +43,7 @@ func TestRunPart2(t *testing.T) {
 		{
 			name: "AoCInput",
 			args: args{
-				file: "test/part2_input",
+				file: "test/part1_input",
 			},
 			want: "",
 		},

@@ -19,7 +19,7 @@ func TestPart1(t *testing.T) {
 			args: args{
 				file: "test/sample_part1_test",
 			},
-			want: "7",
+			want: "150",
 		},
 	}
 	for _, tt := range tests {
