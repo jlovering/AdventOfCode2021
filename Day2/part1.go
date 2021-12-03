@@ -1,6 +1,7 @@
-package AdventOfCode
+package adventofcode
 
 import (
+	util "adventofcode/util/common"
 	"bufio"
 	"fmt"
 	"os"
@@ -8,11 +9,11 @@ import (
 
 func Part1(filename string) string {
 	// STDOUT MUST BE FLUSHED MANUALLY!!!
-	defer sdout_writer.Flush()
+	defer util.SdoutFlush()
 
-	debug_output = false
+	util.Setdebug(false)
 	f, err := os.Open(filename)
-	check_error(err)
+	util.Check_error(err)
 	defer f.Close()
 
 	file_scanner := bufio.NewScanner(f)
@@ -24,7 +25,7 @@ func Part1(filename string) string {
 		var direction string
 		var value int
 		_, err = fmt.Sscanf(line, "%s %d", &direction, &value)
-		check_error(err)
+		util.Check_error(err)
 		switch direction {
 		case "forward":
 			horz_pos += value
@@ -36,7 +37,7 @@ func Part1(filename string) string {
 			depth -= value
 			break
 		}
-		dprintf("%s %d %d\n", direction, horz_pos, depth)
+		util.Dprintf("%s %d %d\n", direction, horz_pos, depth)
 	}
 
 	return fmt.Sprintf("%d", horz_pos*depth)

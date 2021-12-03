@@ -1,0 +1,47 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-testall",
+            "type": "shell",
+            "command": "go test $(go list ./... | grep -v common | grep -v template) --benchmem",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build-latest",
+            "type": "shell",
+            "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --benchmem",
+            "problemMatcher": [],
+        },
+        {
+            "label": "build-latest-part1",
+            "type": "shell",
+            "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --run TestPart1",
+            "problemMatcher": [],
+        },
+        {
+            "label": "build-latest-part2",
+            "type": "shell",
+            "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --run TestPart2",
+            "problemMatcher": [],
+        },
+        {
+            "label": "build-latest-run-part1",
+            "type": "shell",
+            "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --run TestRunPart1",
+            "problemMatcher": [],
+        },
+        {
+            "label": "build-latest-run-part2",
+            "type": "shell",
+            "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --run TestRunPart2",
+            "problemMatcher": [],
+        }
+    ]
+}

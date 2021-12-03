@@ -1,6 +1,7 @@
-package AdventOfCode
+package adventofcode
 
 import (
+	util "adventofcode/util/common"
 	"bufio"
 	"fmt"
 	"os"
@@ -8,10 +9,10 @@ import (
 
 func Part1(filename string) string {
 	// STDOUT MUST BE FLUSHED MANUALLY!!!
-	defer sdout_writer.Flush()
+	defer util.SdoutFlush()
 
 	f, err := os.Open(filename)
-	check_error(err)
+	util.Check_error(err)
 	defer f.Close()
 
 	file_scanner := bufio.NewScanner(f)
@@ -29,12 +30,12 @@ func Part1(filename string) string {
 			}
 		}
 		total_values++
-		dprintf("%v\n", bitcount)
+		util.Dprintf("%v\n", bitcount)
 	}
 
 	gammarate := 0
 	epsilonrate := 0
-	dprintf("%d %d\n", total_values, (len(bitcount)))
+	util.Dprintf("%d %d\n", total_values, (len(bitcount)))
 	for i, c := range bitcount {
 		if c > total_values/2 {
 			gammarate |= 0x1 << (len(bitcount) - 1 - i)
@@ -42,7 +43,7 @@ func Part1(filename string) string {
 			epsilonrate |= 0x1 << (len(bitcount) - 1 - i)
 		}
 	}
-	dprintf("%d %d", gammarate, epsilonrate)
+	util.Dprintf("%d %d", gammarate, epsilonrate)
 
 	return fmt.Sprintf("%d", gammarate*epsilonrate)
 }

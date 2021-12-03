@@ -1,6 +1,7 @@
-package AdventOfCode
+package adventofcode
 
 import (
+	util "adventofcode/util/common"
 	"bufio"
 	"fmt"
 	"os"
@@ -8,10 +9,10 @@ import (
 
 func Part1(filename string) string {
 	// STDOUT MUST BE FLUSHED MANUALLY!!!
-	defer sdout_writer.Flush()
+	defer util.SdoutFlush()
 
 	f, err := os.Open(filename)
-	check_error(err)
+	util.Check_error(err)
 	defer f.Close()
 
 	file_scanner := bufio.NewScanner(f)
@@ -23,16 +24,16 @@ func Part1(filename string) string {
 		line := file_scanner.Text()
 		var value int
 		_, err := fmt.Sscanf(line, "%d", &value)
-		check_error(err)
+		util.Check_error(err)
 
 		if prev_value == -1 {
-			printf("%s (N/A)\n", line)
+			util.Dprintf("%s (N/A)\n", line)
 		} else if value > prev_value {
-			printf("%s (increased)\n", line)
+			util.Dprintf("%s (increased)\n", line)
 			increasing++
 		} else if value < prev_value {
 			decreasing++
-			printf("%s (decreased)\n", line)
+			util.Dprintf("%s (decreased)\n", line)
 		}
 		prev_value = value
 	}

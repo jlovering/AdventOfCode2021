@@ -1,6 +1,7 @@
-package AdventOfCode
+package adventofcode
 
 import (
+	util "adventofcode/util/common"
 	"bufio"
 	"fmt"
 	"os"
@@ -21,7 +22,7 @@ func oxygenGenRate(all_values []int, bitlen int) int {
 				}
 			}
 		}
-		dprintf("%d\n%v\n%v\n%d\n", i, all_values, bitcount, total_values)
+		util.Dprintf("%d\n%v\n%v\n%d\n", i, all_values, bitcount, total_values)
 
 		match := 0
 		mask := 0x1 << (bitlen - 1 - i)
@@ -30,7 +31,7 @@ func oxygenGenRate(all_values []int, bitlen int) int {
 		} else if bitcount[i] == (total_values - bitcount[i]) {
 			match = 0x1 << (bitlen - 1 - i)
 		}
-		dprintf("\t%d %d %02x\n\n", bitlen, i, match)
+		util.Dprintf("\t%d %d %02x\n\n", bitlen, i, match)
 
 		new_values := make([]int, 0, len(all_values))
 		for _, v := range all_values {
@@ -61,7 +62,7 @@ func co2Rate(all_values []int, bitlen int) int {
 				}
 			}
 		}
-		dprintf("%d\n%v\n%v\n%d\n", i, all_values, bitcount, total_values)
+		util.Dprintf("%d\n%v\n%v\n%d\n", i, all_values, bitcount, total_values)
 
 		match := 0
 		mask := 0x1 << (bitlen - 1 - i)
@@ -69,7 +70,7 @@ func co2Rate(all_values []int, bitlen int) int {
 			match = 0x1 << (bitlen - 1 - i)
 		}
 
-		dprintf("\t%d %d %02x\n\n", bitlen, i, match)
+		util.Dprintf("\t%d %d %02x\n\n", bitlen, i, match)
 
 		new_values := make([]int, 0, len(all_values))
 		for _, v := range all_values {
@@ -88,14 +89,14 @@ func co2Rate(all_values []int, bitlen int) int {
 
 func Part2(filename string) string {
 	// STDOUT MUST BE FLUSHED MANUALLY!!!
-	defer sdout_writer.Flush()
+	defer util.SdoutFlush()
 
 	f, err := os.Open(filename)
-	check_error(err)
+	util.Check_error(err)
 	defer f.Close()
 
 	file_stat, err := f.Stat()
-	check_error(err)
+	util.Check_error(err)
 	file_size := file_stat.Size()
 
 	file_scanner := bufio.NewScanner(f)
@@ -109,7 +110,7 @@ func Part2(filename string) string {
 		fmt.Sscanf(line, "%s", &value)
 		bitlen = len(value)
 		value_int, err := strconv.ParseUint(value, 2, 64)
-		check_error(err)
+		util.Check_error(err)
 		all_values = append(all_values, int(value_int))
 	}
 

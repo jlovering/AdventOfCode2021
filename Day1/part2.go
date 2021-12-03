@@ -1,6 +1,7 @@
-package AdventOfCode
+package adventofcode
 
 import (
+	util "adventofcode/util/common"
 	"bufio"
 	"fmt"
 	"os"
@@ -8,10 +9,10 @@ import (
 
 func Part2(filename string) string {
 	// STDOUT MUST BE FLUSHED MANUALLY!!!
-	defer sdout_writer.Flush()
+	defer util.SdoutFlush()
 
 	f, err := os.Open(filename)
-	check_error(err)
+	util.Check_error(err)
 	defer f.Close()
 
 	file_scanner := bufio.NewScanner(f)
@@ -28,7 +29,7 @@ func Part2(filename string) string {
 		line := file_scanner.Text()
 		var value int
 		_, err := fmt.Sscanf(line, "%d", &value)
-		check_error(err)
+		util.Check_error(err)
 
 		window[index] = value
 		index++
@@ -43,20 +44,20 @@ func Part2(filename string) string {
 		value = 0
 		for _, v := range window {
 			value += v
-			dprintf("%d ", v)
+			util.Dprintf("%d ", v)
 		}
-		dprintf("\n")
+		util.Dprintf("\n")
 
 		if prev_value == -1 {
-			dprintf("%d (N/A)\n", value)
+			util.Dprintf("%d (N/A)\n", value)
 		} else if value > prev_value {
-			dprintf("%d (increased)\n", value)
+			util.Dprintf("%d (increased)\n", value)
 			increasing++
 		} else if value < prev_value {
 			decreasing++
-			dprintf("%d (decreased)\n", value)
+			util.Dprintf("%d (decreased)\n", value)
 		} else if value == prev_value {
-			dprintf("%d (no change)\n", value)
+			util.Dprintf("%d (no change)\n", value)
 		}
 		prev_value = value
 	}

@@ -1,6 +1,7 @@
-package AdventOfCode
+package adventofcode
 
 import (
+	util "adventofcode/util/common"
 	"fmt"
 	"testing"
 )
@@ -22,6 +23,7 @@ func TestPart2Samples(t *testing.T) {
 			want: "5",
 		},
 	}
+	util.Setdebug(true)
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := Part2(tt.args.file); got != tt.want {
@@ -48,6 +50,7 @@ func TestRunPart2(t *testing.T) {
 			want: "",
 		},
 	}
+	util.Setdebug(false)
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got := Part2(tt.args.file)
