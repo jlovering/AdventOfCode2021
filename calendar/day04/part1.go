@@ -20,7 +20,7 @@ func Part1(filename string) string {
 	for file_scanner.Scan() {
 		line := file_scanner.Text()
 		var value int
-		fmt.Sscanf(line, "%d", &value)
+		fmt.Sscanf(line, "%d", value)
 	}
 
 	return ""
