@@ -8,40 +8,41 @@
             "type": "shell",
             "command": "go test $(go list ./... | grep -v common | grep -v template) --benchmem",
             "problemMatcher": [],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
+            "group": "build"
         },
         {
             "label": "build-latest",
             "type": "shell",
             "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --benchmem",
             "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "build-latest-part1",
             "type": "shell",
             "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --run TestPart1",
-            "problemMatcher": [],
+            "problemMatcher": []
         },
         {
             "label": "build-latest-part2",
             "type": "shell",
             "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --run TestPart2",
-            "problemMatcher": [],
+            "problemMatcher": []
         },
         {
             "label": "build-latest-run-part1",
             "type": "shell",
             "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --run TestRunPart1",
-            "problemMatcher": [],
+            "problemMatcher": []
         },
         {
             "label": "build-latest-run-part2",
             "type": "shell",
             "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --run TestRunPart2",
-            "problemMatcher": [],
+            "problemMatcher": []
         }
     ]
 }
