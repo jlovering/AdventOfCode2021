@@ -20,7 +20,7 @@ func TestPart2Samples(t *testing.T) {
 			args: args{
 				file: "test/sample_test",
 			},
-			want: "",
+			want: "1924",
 		},
 	}
 	util.Setdebug(true)
