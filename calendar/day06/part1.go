@@ -50,7 +50,7 @@ func (l lampfishSchool) Less(i, j int) bool {
 
 func (ls *lampfishSchool) passDayAllAndSpawn() lampfishSchool {
 	var nls lampfishSchool = make(lampfishSchool, 0, len(*ls))
-	for i, _ := range *ls {
+	for i := range *ls {
 		if (*ls)[i].passDay() {
 			nls = append(nls, (*ls)[i].spawn())
 		}
