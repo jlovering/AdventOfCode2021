@@ -6,14 +6,14 @@
         {
             "label": "build-testall",
             "type": "shell",
-            "command": "go test $(go list ./... | grep -v common | grep -v template) --benchmem",
+            "command": "go test $(go list ./... | grep -v util | grep -v template) --benchmem",
             "problemMatcher": [],
             "group": "build"
         },
         {
             "label": "build-latest",
             "type": "shell",
-            "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --benchmem",
+            "command": "go test -v $(go list ./... | grep -v util | grep -v template | sort | tail -n1) --benchmem",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
@@ -23,25 +23,25 @@
         {
             "label": "build-latest-part1",
             "type": "shell",
-            "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --run TestPart1",
+            "command": "go test -v $(go list ./... | grep -v util | grep -v template | sort | tail -n1) --run TestPart1",
             "problemMatcher": []
         },
         {
             "label": "build-latest-part2",
             "type": "shell",
-            "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --run TestPart2",
+            "command": "go test -v $(go list ./... | grep -v util | grep -v template | sort | tail -n1) --run TestPart2",
             "problemMatcher": []
         },
         {
             "label": "build-latest-run-part1",
             "type": "shell",
-            "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --run TestRunPart1",
+            "command": "go test -v $(go list ./... | grep -v util | grep -v template | sort | tail -n1) --run TestRunPart1",
             "problemMatcher": []
         },
         {
             "label": "build-latest-run-part2",
             "type": "shell",
-            "command": "go test -v $(go list ./... | grep -v common | grep -v template | sort | tail -n1) --run TestRunPart2",
+            "command": "go test -v $(go list ./... | grep -v util | grep -v template | sort | tail -n1) --run TestRunPart2",
             "problemMatcher": []
         }
     ]
