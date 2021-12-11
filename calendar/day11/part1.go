@@ -6,8 +6,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-
-	"github.com/fatih/color"
 )
 
 type deltaPoint struct {
@@ -19,9 +17,7 @@ func printGrid(grid [][]int) {
 	for j := 0; j < len(grid); j++ {
 		for i := 0; i < len(grid[0]); i++ {
 			if grid[j][i] == 0 {
-				color.Set(color.FgCyan)
 				util.Dprintf("%2d ", grid[j][i])
-				color.Unset()
 			} else {
 				util.Dprintf("%2d ", grid[j][i])
 			}
