@@ -2,6 +2,7 @@ package arrayutil
 
 import (
 	"fmt"
+	"strings"
 )
 
 type SliceValue interface{}
@@ -47,71 +48,71 @@ func SliceBuilder2DBool(i, j int) [][]bool {
 }
 
 func SPrintArrayYX(array interface{}, format string) string {
-	out := ""
+	var sb strings.Builder
 	switch arr := array.(type) {
 	case [][]string:
 		for j := range arr {
 			for i := range arr[0] {
-				out += fmt.Sprintf(format+" ", arr[j][i])
+				sb.WriteString(fmt.Sprintf(format+" ", arr[j][i]))
 			}
-			out += "\n"
+			sb.WriteRune('\n')
 		}
 	case [][]int:
 		for j := range arr {
 			for i := range arr[0] {
-				out += fmt.Sprintf(format+" ", arr[j][i])
+				sb.WriteString(fmt.Sprintf(format+" ", arr[j][i]))
 			}
-			out += "\n"
+			sb.WriteRune('\n')
 		}
 	case [][]rune:
 		for j := range arr {
 			for i := range arr[0] {
-				out += fmt.Sprintf(format+" ", arr[j][i])
+				sb.WriteString(fmt.Sprintf(format+" ", arr[j][i]))
 			}
-			out += "\n"
+			sb.WriteRune('\n')
 		}
 	case [][]bool:
 		for j := range arr {
 			for i := range arr[0] {
-				out += fmt.Sprintf(format+" ", arr[j][i])
+				sb.WriteString(fmt.Sprintf(format+" ", arr[j][i]))
 			}
-			out += "\n"
+			sb.WriteRune('\n')
 		}
 	}
-	return out
+	return sb.String()
 }
 
 func SPrintArrayXY(array interface{}, format string) string {
-	out := ""
+	var sb strings.Builder
 	switch arr := array.(type) {
 	case [][]string:
 		for i := range arr[0] {
 			for j := range arr {
-				out += fmt.Sprintf(format+" ", arr[j][i])
+				sb.WriteString(fmt.Sprintf(format+" ", arr[j][i]))
 			}
-			out += "\n"
+			sb.WriteRune('\n')
 		}
 	case [][]int:
 		for i := range arr[0] {
 			for j := range arr {
-				out += fmt.Sprintf(format+" ", arr[j][i])
+				sb.WriteString(fmt.Sprintf(format+" ", arr[j][i]))
 			}
-			out += "\n"
+			sb.WriteRune('\n')
 		}
 	case [][]rune:
 		for i := range arr[0] {
 			for j := range arr {
-				out += fmt.Sprintf(format+" ", arr[j][i])
+				sb.WriteString(fmt.Sprintf(format+" ", arr[j][i]))
 			}
-			out += "\n"
+			sb.WriteRune('\n')
 		}
 	case [][]bool:
 		for i := range arr[0] {
 			for j := range arr {
-				out += fmt.Sprintf(format+" ", arr[j][i])
+				sb.WriteString(fmt.Sprintf(format+" ", arr[j][i]))
 			}
-			out += "\n"
+			sb.WriteRune('\n')
 		}
 	}
-	return out
+	return sb.String()
 }
