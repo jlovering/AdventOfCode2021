@@ -38,27 +38,42 @@ func SliceBuilder2DRune(i, j int) [][]rune {
 	return slice
 }
 
+func SliceBuilder2DBool(i, j int) [][]bool {
+	var slice [][]bool = make([][]bool, i)
+	for x := range slice {
+		slice[x] = make([]bool, j)
+	}
+	return slice
+}
+
 func SPrintArrayYX(array interface{}, format string) string {
 	out := ""
 	switch arr := array.(type) {
 	case [][]string:
-		for x := range arr {
-			for y := range arr[0] {
-				out += fmt.Sprintf(format+" ", arr[x][y])
+		for j := range arr {
+			for i := range arr[0] {
+				out += fmt.Sprintf(format+" ", arr[j][i])
 			}
 			out += "\n"
 		}
 	case [][]int:
-		for x := range arr {
-			for y := range arr[0] {
-				out += fmt.Sprintf(format+" ", arr[x][y])
+		for j := range arr {
+			for i := range arr[0] {
+				out += fmt.Sprintf(format+" ", arr[j][i])
 			}
 			out += "\n"
 		}
 	case [][]rune:
-		for x := range arr {
-			for y := range arr[0] {
-				out += fmt.Sprintf(format+" ", arr[x][y])
+		for j := range arr {
+			for i := range arr[0] {
+				out += fmt.Sprintf(format+" ", arr[j][i])
+			}
+			out += "\n"
+		}
+	case [][]bool:
+		for j := range arr {
+			for i := range arr[0] {
+				out += fmt.Sprintf(format+" ", arr[j][i])
 			}
 			out += "\n"
 		}
@@ -70,23 +85,30 @@ func SPrintArrayXY(array interface{}, format string) string {
 	out := ""
 	switch arr := array.(type) {
 	case [][]string:
-		for x := range arr[0] {
-			for y := range arr {
-				out += fmt.Sprintf(format+" ", arr[y][x])
+		for i := range arr[0] {
+			for j := range arr {
+				out += fmt.Sprintf(format+" ", arr[j][i])
 			}
 			out += "\n"
 		}
 	case [][]int:
-		for x := range arr[0] {
-			for y := range arr {
-				out += fmt.Sprintf(format+" ", arr[y][x])
+		for i := range arr[0] {
+			for j := range arr {
+				out += fmt.Sprintf(format+" ", arr[j][i])
 			}
 			out += "\n"
 		}
 	case [][]rune:
-		for x := range arr[0] {
-			for y := range arr {
-				out += fmt.Sprintf(format+" ", arr[y][x])
+		for i := range arr[0] {
+			for j := range arr {
+				out += fmt.Sprintf(format+" ", arr[j][i])
+			}
+			out += "\n"
+		}
+	case [][]bool:
+		for i := range arr[0] {
+			for j := range arr {
+				out += fmt.Sprintf(format+" ", arr[j][i])
 			}
 			out += "\n"
 		}
