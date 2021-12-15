@@ -2,6 +2,7 @@ package arrayutil
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -45,6 +46,27 @@ func SliceBuilder2DBool(i, j int) [][]bool {
 		slice[x] = make([]bool, j)
 	}
 	return slice
+}
+
+func Dynamic2DIntSliceBuilder(
+	input string,
+	line_delimiter string,
+	cell_delimiter string,
+) [][]int {
+	lines := strings.Split(input, line_delimiter)
+	grid := make([][]int, 0)
+	for i, line := range lines {
+		grid = append(grid, make([]int, 0))
+		cells := strings.Split(line, cell_delimiter)
+		for _, cell := range cells {
+			v, err := strconv.Atoi(cell)
+			if err != nil {
+				panic(err)
+			}
+			grid[i] = append(grid[i], v)
+		}
+	}
+	return grid
 }
 
 func SPrintArrayYX(array interface{}, format string) string {
