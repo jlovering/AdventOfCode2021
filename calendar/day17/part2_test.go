@@ -23,7 +23,7 @@ func TestPart2Samples(t *testing.T) {
 			want: "112",
 		},
 	}
-	util.Setdebug(true)
+	util.Setdebug(false)
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := Part2(tt.args.file); got != tt.want {
@@ -46,6 +46,13 @@ func TestRunPart2(t *testing.T) {
 			name: "AoCInput",
 			args: args{
 				file: "test/input",
+			},
+			want: "",
+		},
+		{
+			name: "AoCInput",
+			args: args{
+				file: "test/input_tim",
 			},
 			want: "",
 		},
