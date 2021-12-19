@@ -23,7 +23,7 @@ func TestPart2Samples(t *testing.T) {
 			want: "",
 		},
 	}
-	util.Setdebug(true)
+	util.Setmasterdebug(true)
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := Part2(tt.args.file); got != tt.want {
@@ -50,7 +50,7 @@ func TestRunPart2(t *testing.T) {
 			want: "",
 		},
 	}
-	util.Setdebug(false)
+	util.Setmasterdebug(false)
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got := Part2(tt.args.file)

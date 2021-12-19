@@ -7,6 +7,15 @@ import (
 	"os"
 )
 
+func parseInput(file_scanner *bufio.Scanner) string {
+	for file_scanner.Scan() {
+		line := file_scanner.Text()
+		var value int
+		fmt.Sscanf(line, "%d", &value)
+	}
+	return ""
+}
+
 func Part1(filename string) string {
 	// STDOUT MUST BE FLUSHED MANUALLY!!!
 	defer util.SdoutFlush()
@@ -16,12 +25,7 @@ func Part1(filename string) string {
 	defer f.Close()
 
 	file_scanner := bufio.NewScanner(f)
-
-	for file_scanner.Scan() {
-		line := file_scanner.Text()
-		var value int
-		fmt.Sscanf(line, "%d", &value)
-	}
+	_ = parseInput(file_scanner)
 
 	return ""
 }
