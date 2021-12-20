@@ -70,7 +70,7 @@ func Part2(filename string) string {
 						maxC = v
 					}
 				}
-				if maxC >= 24 {
+				if maxC >= 12 {
 					util.Dprintf("%v %d\n", maxT, maxC)
 					nSF := scannerData[n].applyTransform(maxT)
 					util.Dprintf("%d %d\n", len(nSF), len(masterPointMap))
