@@ -29,6 +29,10 @@ func Check_error(e error) {
 	}
 }
 
+func Getdebug() bool {
+	return debug_output
+}
+
 func Setmasterdebug(db bool) {
 	master_debug = db
 }
