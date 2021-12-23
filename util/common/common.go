@@ -29,6 +29,10 @@ func Check_error(e error) {
 	}
 }
 
+func GetDebugIndent() string {
+	return strings.Repeat(" ", debug_indent)
+}
+
 func Getdebug() bool {
 	return debug_output
 }
